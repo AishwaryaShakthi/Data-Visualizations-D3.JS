@@ -6,5 +6,5 @@
 <p> A sample data set which brings the visualization on Revenue Share for set of groups/categories</p>
 
 <h3> Demo on Fiddle </h3>
-<a href="https://jsfiddle.net/aisaknais/upzhzg86/">Fiddle Demo</a>
+<a href="https://jsfiddle.net/AishwaryaSivakumar/upzhzg86/">Fiddle Demo</a>
  
