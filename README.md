@@ -6,5 +6,5 @@
 <p> A data set visualized with shares and sales performances of the customers for the year 2012</p>
 
 <h3> Demo on Fiddle </h3>
-<a href="https://jsfiddle.net/AishwaryaSivakumar/upzhzg86/">Fiddle Demo</a>
+<a href="https://jsfiddle.net/AishwaryaSivakumar/upzhzg86/2/">Fiddle Demo</a>
  
