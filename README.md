@@ -1,6 +1,6 @@
 # Data visualization using D3.js
 
-<img src="https://s26.postimg.org/cw4cxah9l/D3_Sample_Dashboard.png">
+<img src="https://s26.postimg.org/4f4umdckp/Sample_Dashboard.png">
 
 <h2>What's Visualized?</h2>
 <p> A data set visualized with shares and sales performances of the customers for the year 2012</p>
