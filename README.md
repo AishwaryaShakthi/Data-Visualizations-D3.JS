@@ -20,3 +20,4 @@
 
 A sample demo on building treemap chart for a small set of "Departments" data.
  
+Find the complete code here : <a href = "https://jsfiddle.net/AishwaryaSivakumar/t53mxf72/#&togetherjs=qImlq1JvAL"> Treemap Demo </a>
