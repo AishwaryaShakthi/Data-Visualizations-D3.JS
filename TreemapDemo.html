@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+@import url(http://fonts.googleapis.com/css?family=Wire+One);
+
+body {
+  font-family: "Wire One";
+  margin: auto;
+  position: relative;
+  padding: 20px;
+  height: 100%;
+}
+ 
+form {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+ 
+.node {
+    border: solid 1px white;
+    line-height: 0.95;
+    overflow: hidden;
+    position: absolute;
+    border-radius: 6px;
+    background-image: -webkit-linear-gradient(top, hsla(0,0%,100%,.3), hsla(0,0%,100%,0));
+    background-image:    -moz-linear-gradient(top, hsla(0,0%,100%,.3), hsla(0,0%,100%,0));
+    background-image:     -ms-linear-gradient(top, hsla(0,0%,100%,.3), hsla(0,0%,100%,0));
+    background-image:      -o-linear-gradient(top, hsla(0,0%,100%,.3), hsla(0,0%,100%,0));
+    background-image:         linear-gradient(top, hsla(0,0%,100%,.3), hsla(0,0%,100%,0)); 
+    text-shadow: -1px -1px 2px hsla(0,0%,100%,0.25),
+        -1px -1px 2px hsla(0,0%,100%,0.25),
+        -1px 1px 2px hsla(0,0%,100%,0.25),
+        1px -1px 2px hsla(0,0%,100%,0.25),
+        -1px 0px 2px hsla(0,0%,100%,0.25),
+        1px 0px 2px hsla(0,0%,100%,0.25);
+}
+
+.node div {
+   padding: 6px 4%;
+}
+
+</style>
+
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var tree = {
+	"name": "departments",
+	"children": [
+	{
+		"name": "Maths",
+		"children": [{
+			"name": "Applied Mathematics",
+			"students": 200
+		}, {
+			"name": "Business Statistics",
+			"students": 100
+		}] },
+		{
+		"name": "Science",
+		"children": [{
+			"name": "Chemistry",
+			"students": 300
+		}, {
+			"name": "Physics",
+			"students": 400
+		}, {
+			"name": "Biology",
+			"students": 250
+		}]
+		},
+	{
+		"name": "Language",
+		"children": [{
+			"name": "English",
+			"students": 200
+		}, {
+			"name": "Tamil",
+			"students": 300
+		}, {
+			"name": "French",
+			"students": 250
+		}, {
+			"name": "Hindi",
+			"students": 150
+		}]
+	}
+] 
+};
+	
+var width = innerWidth-20,
+    height = innerHeight-20,
+    color = d3.scale.category20c(),
+    div = d3.select("body").append("div")
+       .style("position", "relative");
+
+var treemap = d3.layout.treemap()
+	.size([width,height])
+	.sticky(true)
+	.value(function(d) {return d.students; });
+
+var node = div.datum(tree).selectAll(".node")
+		.data(treemap.nodes)
+		.enter().append("div")
+		.attr("class", "node")
+		.call(position)
+		.style("background", function(d) { return d.name == 'departments' ? '#fff' : color(d.name); })
+    
+    .append('div')    
+     .style("font-size", function(d) {
+          // compute font size based on sqrt(area)
+          return Math.max(20, 0.18*Math.sqrt(d.area))+'px'; })
+		.text (function(d) {return d.children ? null : d.name;});
+		
+function position() {
+  this.style("left", function(d) { return d.x + "px"; })
+      .style("top", function(d) { return d.y + "px"; })
+      .style("width", function(d) { return Math.max(0, d.dx - 1) + "px"; })
+      .style("height", function(d) { return Math.max(0, d.dy - 1) + "px"; });
+}
+</script>
+	
+	
+	
+	
+	
+
+
